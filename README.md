@@ -95,3 +95,25 @@ Stack: Solidity 0.8.35 · Hardhat · OpenZeppelin · Pyth Pull Oracle.
 - **Site:** [aifinpay.io](https://aifinpay.io)
 - **SDK + MCP:** [github.com/AiFinPay/sdk](https://github.com/AiFinPay/sdk)
 - **Polygon deployment:** [github.com/AiFinPay/aifinpay-polygon](https://github.com/AiFinPay/aifinpay-polygon)
+
+---
+
+## Live On-Chain Activity (Proof)
+
+AiFinPay is not just deployed — it is **live and processing real payments** on
+Avalanche C-Chain. The following transactions were executed through the full
+protocol flow (native AVAX payment → Pyth AVAX/USD price → on-chain settlement →
+mSECCO credit minted). Every transaction burns AVAX.
+
+| Action | Transaction |
+|---|---|
+| Reserve seat (0.03 AVAX) | [`0xd8e17d7f…7ab03e`](https://snowtrace.io/tx/0xd8e17d7fd8abc5ad3e8643a5190af5199d544d738b4efe253d3b3bbf047ab03e) |
+| Top-up #1 (0.02 AVAX) | [`0x4ee94162…2149f0`](https://snowtrace.io/tx/0x4ee94162fb4600f9949cbc6c27554f2949b252566e2bc994bf61f07bc42149f0) |
+| Top-up #2 (0.02 AVAX) | [`0xbcace889…be13d6`](https://snowtrace.io/tx/0xbcace889257c1fa37b07e3576519cf7cf01577b3262e62ec3b5c61d3d7be13d6) |
+| Top-up #3 (0.02 AVAX) | [`0x3e4fa84c…cfb071`](https://snowtrace.io/tx/0x3e4fa84c0693971913a49910f698ef0a54b26efc69db3fcb40d30dc11fcfb071) |
+
+**On-chain protocol state:** `totalSeats = 1` · `totalUsdCents = 55` · `55 mSECCO` minted.
+Live state is readable directly on the verified [AiFinPayCore contract](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC#readContract).
+
+All activity originates from the deployer/operator wallet
+[`0x1D5eF769…3fAB9`](https://snowtrace.io/address/0x1D5eF769A024B3157c76884fbd10302d8d83fAB9).
