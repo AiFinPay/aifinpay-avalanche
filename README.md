@@ -66,15 +66,15 @@ Full config in [`config/avalanche.json`](./config/avalanche.json).
 
 ## Deployed addresses
 
-> 🟡 **Deployment in progress.** Contract addresses will be published here and
-> verified on Snowtrace immediately upon mainnet deployment.
+> ✅ **LIVE on Avalanche C-Chain mainnet** — all contracts verified on Snowtrace. Real manifesto hash on-chain. Deployment cost: **~$0.009 (under one cent)**.
 
 | Contract | Address |
 |---|---|
-| AiFinPayCore | _coming on deploy_ |
-| AgentPassport | _coming on deploy_ |
-| B2BSplitter | _coming on deploy_ |
-| MSECCOToken | _coming on deploy_ |
+| **AiFinPayCore** | [`0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC`](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC) |
+| **AgentPassport** | [`0x271870ABb6e6756D97191eBdb27C1873911bb587`](https://snowtrace.io/address/0x271870ABb6e6756D97191eBdb27C1873911bb587) |
+| **MSECCOToken** | [`0xeE92807decAa3A02F1e165dd7Efcd92ab9aA83CB`](https://snowtrace.io/address/0xeE92807decAa3A02F1e165dd7Efcd92ab9aA83CB) |
+
+*B2BSplitter is shared across chains; AiFinPayCore handles settlement on Avalanche. Treasury is temporarily the deployer and will move to a multisig.*
 
 ---
 
