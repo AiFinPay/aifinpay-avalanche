@@ -1,0 +1,12 @@
+{
+  "chainId": 43114,
+  "chainName": "Avalanche C-Chain",
+  "nativeSymbol": "AVAX",
+  "pyth": "0x4305FB66699C3B2702D4d05CF36551390A4c69C6",
+  "usdc": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+  "usdt": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+  "nativeUsdId": "0x93da3352f9f1d105fdfe4971cfa80e9dd777bfc5d0f683ebb6e1294b92137bb7",
+  "treasury": "DEPLOY_GNOSIS_SAFE_FIRST",
+  "explorerUrl": "https://snowtrace.io",
+  "rpc": "https://api.avax.network/ext/bc/C/rpc"
+}
