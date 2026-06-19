@@ -1,3 +1,5 @@
+> ⚠️ **USED FOR RETRO9000 GRANT SUBMISSION — NOT FOR PRODUCTION.** This repository is kept as the public record for the RETRO9000 GRANT SUBMISSION submission. The contract code here may duplicate the canonical `evm-contract` repo and is **unmaintained** — do not use in production.
+
 # AiFinPay on Avalanche C-Chain
 
 **AiFinPay is the payment rail for autonomous AI agents — "Stripe for AI agents."**
