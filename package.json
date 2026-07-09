@@ -10,11 +10,11 @@
     "verify": "hardhat verify --network avalanche"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@types/node": "^22.0.0",
-    "dotenv": "^16.4.5",
-    "hardhat": "^2.22.0",
-    "typescript": "^5.5.0"
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
+    "@types/node": "^26.1.1",
+    "dotenv": "^17.4.2",
+    "hardhat": "^3.9.1",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.2"
