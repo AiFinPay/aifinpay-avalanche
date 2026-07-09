@@ -2,15 +2,32 @@
 
 # AiFinPay on Avalanche C-Chain
 
+[![Network: Avalanche C-Chain](https://img.shields.io/badge/network-Avalanche%20C--Chain-e84142)](https://snowtrace.io)
+[![Status: Live on Mainnet](https://img.shields.io/badge/status-live%20on%20mainnet-brightgreen)](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC)
+[![Solidity 0.8.35](https://img.shields.io/badge/solidity-0.8.35-363636)](https://soliditylang.org)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+
 **AiFinPay is the payment rail for autonomous AI agents — "Stripe for AI agents."**
 Agents hold their own wallet and pay for services per call, settled on-chain,
 non-custodial. This repository contains the AiFinPay protocol deployment for the
 **Avalanche C-Chain** (chain ID `43114`).
 
-> Part of AiFinPay's multichain rollout — already live on **Polygon** and **Solana**
-> mainnet, with a **Casper** testnet deployment. Avalanche brings the full protocol
-> to a high-throughput, low-cost L1 that's ideal for high-frequency agent payments.
+> Part of AiFinPay's multichain rollout — already live on **Polygon**, **Solana**,
+> and **Casper** mainnet. Avalanche brings the full protocol to a high-throughput,
+> low-cost L1 that's ideal for high-frequency agent payments.
 > Site: [aifinpay.io](https://aifinpay.io)
+
+---
+
+## Contents
+
+- [Why Avalanche](#why-avalanche)
+- [Architecture](#architecture)
+- [Network configuration](#network-configuration)
+- [Deployed addresses](#deployed-addresses)
+- [Build](#build)
+- [Links](#links)
+- [Live On-Chain Activity (Proof)](#live-on-chain-activity-proof)
 
 ---
 
@@ -83,10 +100,14 @@ Full config in [`config/avalanche.json`](./config/avalanche.json).
 ## Build
 
 ```bash
-bun install
-bun run hardhat compile
-bun run hardhat run scripts/deploy.ts --network avalanche
+npm install
+npm run compile                       # hardhat compile
+npm test                              # hardhat test
+npm run deploy                        # deploy to Avalanche C-Chain (needs .env)
 ```
+
+Copy `.env.example` to `.env` and set `PRIVATE_KEY` before deploying — the real
+`.env` is gitignored and must never be committed.
 
 Stack: Solidity 0.8.35 · Hardhat · OpenZeppelin · Pyth Pull Oracle.
 
@@ -95,8 +116,11 @@ Stack: Solidity 0.8.35 · Hardhat · OpenZeppelin · Pyth Pull Oracle.
 ## Links
 
 - **Site:** [aifinpay.io](https://aifinpay.io)
+- **Architecture:** [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
+- **Deployment cost:** [`DEPLOYMENT_COST.md`](./DEPLOYMENT_COST.md)
+- **Changelog:** [`CHANGELOG.md`](./CHANGELOG.md) · **Roadmap:** [`ROADMAP.md`](./ROADMAP.md)
 - **SDK + MCP:** [github.com/AiFinPay/sdk](https://github.com/AiFinPay/sdk)
-- **Polygon deployment:** [github.com/AiFinPay/aifinpay-polygon](https://github.com/AiFinPay/aifinpay-polygon)
+- **Casper deployment:** [github.com/AiFinPay/casper-contract](https://github.com/AiFinPay/casper-contract)
 
 ---
 

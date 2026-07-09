@@ -1,0 +1,12 @@
+# Global owners — reviewed on every pull request
+*                       @syedhassan125
+
+# Smart contracts
+/contracts/             @syedhassan125
+
+# Deployment scripts & config
+/scripts/               @syedhassan125
+/config/                @syedhassan125
+
+# CI / security automation
+/.github/               @syedhassan125

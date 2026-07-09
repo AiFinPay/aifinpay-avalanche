@@ -1,4 +1,22 @@
+# Dependencies
 node_modules/
+
+# Secrets — never commit
 .env
+.env.*
+!.env.example
+
+# Hardhat build output
 artifacts/
 cache/
+dist/
+typechain/
+typechain-types/
+
+# Coverage
+coverage/
+coverage.json
+
+# Logs / OS cruft
+*.log
+.DS_Store
