@@ -1,145 +1,49 @@
-> ⚠️ **USED FOR RETRO9000 GRANT SUBMISSION — NOT FOR PRODUCTION.** This repository is kept as the public record for the RETRO9000 GRANT SUBMISSION submission. The contract code here may duplicate the canonical `evm-contract` repo and is **unmaintained** — do not use in production.
+# AiFinPay Avalanche — historical deployment record
 
-# AiFinPay on Avalanche C-Chain
+> ⚠️ **LEGACY / NON-CANONICAL / NOT FOR PRODUCTION DEPLOYMENT.**
+>
+> This repository is preserved as the public historical record used for the RETRO9000 grant submission and earlier Avalanche experiments. It is **not** the source of truth for the current AiFinPay AIFP-1/AIFP-2 payment release.
+>
+> Canonical EVM settlement development: **https://github.com/AiFinPay/evm-contract** (`B2BSplitterV13`).
+> Canonical SDK/MCP: **https://github.com/AiFinPay/sdk**.
 
-[![Network: Avalanche C-Chain](https://img.shields.io/badge/network-Avalanche%20C--Chain-e84142)](https://snowtrace.io)
-[![Status: Live on Mainnet](https://img.shields.io/badge/status-live%20on%20mainnet-brightgreen)](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC)
-[![Solidity 0.8.35](https://img.shields.io/badge/solidity-0.8.35-363636)](https://soliditylang.org)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+## Historical evidence
 
-**AiFinPay is the payment rail for autonomous AI agents — "Stripe for AI agents."**
-Agents hold their own wallet and pay for services per call, settled on-chain,
-non-custodial. This repository contains the AiFinPay protocol deployment for the
-**Avalanche C-Chain** (chain ID `43114`).
+Earlier AiFinPayCore / AgentPassport / MSECCOToken contracts were deployed on Avalanche C-Chain and test/operator transactions were recorded on-chain. Those historical deployments are useful evidence that the older protocol code executed on mainnet; they are **not evidence that the current v1.3 AIFP-1/AIFP-2 route is production-live**.
 
-> Part of AiFinPay's multichain rollout — already live on **Polygon**, **Solana**,
-> and **Casper** mainnet. Avalanche brings the full protocol to a high-throughput,
-> low-cost L1 that's ideal for high-frequency agent payments.
-> Site: [aifinpay.io](https://aifinpay.io)
+Historical addresses retained for auditability:
 
----
-
-## Contents
-
-- [Why Avalanche](#why-avalanche)
-- [Architecture](#architecture)
-- [Network configuration](#network-configuration)
-- [Deployed addresses](#deployed-addresses)
-- [Build](#build)
-- [Links](#links)
-- [Live On-Chain Activity (Proof)](#live-on-chain-activity-proof)
-
----
-
-## Why Avalanche
-
-The complete AiFinPay protocol deploys on Avalanche C-Chain for **under $1** —
-making it one of the cheapest networks in the world to stand up a full AI-agent
-payment stack.
-
-| Gas price | Full-protocol deploy cost |
+| Component | Historical address |
 |---|---|
-| **Current (~0.012 gwei)** | **≈ $0.0004** |
-| 5 gwei | $0.18 |
-| 25 gwei (historical worst-case floor) | $0.92 |
+| AiFinPayCore | `0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC` |
+| AgentPassport | `0x271870ABb6e6756D97191eBdb27C1873911bb587` |
+| MSECCOToken | `0xeE92807decAa3A02F1e165dd7Efcd92ab9aA83CB` |
 
-*(5,418,414 gas footprint · AVAX live price · full breakdown in [`DEPLOYMENT_COST.md`](./DEPLOYMENT_COST.md).)*
-Every AiFinPay agent payment burns AVAX in transaction fees — contributing real,
-sustained on-chain activity to the Avalanche ecosystem.
+Historical operator transactions:
 
----
+- Reserve seat: `0xd8e17d7fd8abc5ad3e8643a5190af5199d544d738b4efe253d3b3bbf047ab03e`
+- Top-up #1: `0x4ee94162fb4600d00f9949cbc6c27554f2949b252566e2bc994bf61f07bc42149f0`
+- Top-up #2: `0xbcace889257c1fa37b07e3576519cf7cf01577b3262e62ec3b5c61d3d7be13d6`
+- Top-up #3: `0x3e4fa84c0693971913a49910f698ef0a54b26efc69db3fcb40d30dc11fcfb071`
 
-## Architecture
+The historical deployments were operated from `0x1D5eF769A024B3157c76884fbd10302d8d83fAB9`. The current release must not infer that this legacy EOA is acceptable production governance.
 
-Four contracts make up the protocol:
+## Current release semantics
 
-| Contract | Role |
-|---|---|
-| **AiFinPayCore** | Main protocol — seat reservation, x402 settlement, agent credits |
-| **AgentPassport** | Soulbound ERC-721 — on-chain agent identity + daily spend limits |
-| **B2BSplitter** | Atomic on-chain payment splitter (merchant / treasury / IP creator) |
-| **MSECCOToken** | Non-transferable compute-credit token (mSECCO) |
+The current AiFinPay payment release is intentionally different from the legacy architecture recorded here:
 
-- **Oracle:** Pyth Pull Oracle (AVAX/USD) — `0x4305FB66699C3B2702D4d05CF36551390A4c69C6`
-- **Settlement:** atomic 99 / 1 split, non-custodial — funds never held by the protocol
-- **Identity:** every agent carries a soulbound Passport NFT with enforced spend limits
+- AIFP-1 is gross-inclusive: merchant 99%, AiFinPay treasury 1%, creator 0%.
+- AIFP-2/x402: provider 100%, AiFinPay 0%, creator 0%.
+- EVM economics are represented by separate immutable v1.3 route deployments.
+- AIFP-3 uses one global Agent Identity with verified wallet bindings; the legacy chain-local Passport NFT is not the canonical identity model.
+- A network is not considered production-live merely because a historical contract address exists. Current activation requires reviewed source, a fresh deployment/evidence bundle, trusted pins and paid E2E.
 
----
+## Do not use this repository to
 
-## Network configuration
+- deploy a new production AiFinPay settlement contract;
+- derive current contract addresses or trusted pins;
+- claim that the current AiFinPay v1.3 payment route is live on Avalanche;
+- restore the historical owner/treasury/deployer model;
+- treat historical seat/top-up activity as current AIFP-1/AIFP-2 paid E2E.
 
-| | |
-|---|---|
-| Network | Avalanche C-Chain |
-| Chain ID | `43114` |
-| Native token | AVAX |
-| RPC | `https://api.avax.network/ext/bc/C/rpc` |
-| Explorer | [snowtrace.io](https://snowtrace.io) |
-| USDC | `0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E` |
-| USDT | `0xc7198437980c041c805A1EDcbA50c1Ce5db95118` |
-| Pyth | `0x4305FB66699C3B2702D4d05CF36551390A4c69C6` |
-
-Full config in [`config/avalanche.json`](./config/avalanche.json).
-
----
-
-## Deployed addresses
-
-> ✅ **LIVE on Avalanche C-Chain mainnet** — all contracts verified on Snowtrace. Real manifesto hash on-chain. Deployment cost: **~$0.009 (under one cent)**.
-
-| Contract | Address |
-|---|---|
-| **AiFinPayCore** | [`0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC`](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC) |
-| **AgentPassport** | [`0x271870ABb6e6756D97191eBdb27C1873911bb587`](https://snowtrace.io/address/0x271870ABb6e6756D97191eBdb27C1873911bb587) |
-| **MSECCOToken** | [`0xeE92807decAa3A02F1e165dd7Efcd92ab9aA83CB`](https://snowtrace.io/address/0xeE92807decAa3A02F1e165dd7Efcd92ab9aA83CB) |
-
-*B2BSplitter is shared across chains; AiFinPayCore handles settlement on Avalanche. Treasury is temporarily the deployer and will move to a multisig.*
-
----
-
-## Build
-
-```bash
-npm install
-npm run compile                       # hardhat compile
-npm test                              # hardhat test
-npm run deploy                        # deploy to Avalanche C-Chain (needs .env)
-```
-
-Copy `.env.example` to `.env` and set `PRIVATE_KEY` before deploying — the real
-`.env` is gitignored and must never be committed.
-
-Stack: Solidity 0.8.35 · Hardhat · OpenZeppelin · Pyth Pull Oracle.
-
----
-
-## Links
-
-- **Site:** [aifinpay.io](https://aifinpay.io)
-- **Architecture:** [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
-- **Deployment cost:** [`DEPLOYMENT_COST.md`](./DEPLOYMENT_COST.md)
-- **Changelog:** [`CHANGELOG.md`](./CHANGELOG.md) · **Roadmap:** [`ROADMAP.md`](./ROADMAP.md)
-- **SDK + MCP:** [github.com/AiFinPay/sdk](https://github.com/AiFinPay/sdk)
-- **Casper deployment:** [github.com/AiFinPay/casper-contract](https://github.com/AiFinPay/casper-contract)
-
----
-
-## Live On-Chain Activity (Proof)
-
-AiFinPay is not just deployed — it is **live and processing real payments** on
-Avalanche C-Chain. The following transactions were executed through the full
-protocol flow (native AVAX payment → Pyth AVAX/USD price → on-chain settlement →
-mSECCO credit minted). Every transaction burns AVAX.
-
-| Action | Transaction |
-|---|---|
-| Reserve seat (0.03 AVAX) | [`0xd8e17d7f…7ab03e`](https://snowtrace.io/tx/0xd8e17d7fd8abc5ad3e8643a5190af5199d544d738b4efe253d3b3bbf047ab03e) |
-| Top-up #1 (0.02 AVAX) | [`0x4ee94162…2149f0`](https://snowtrace.io/tx/0x4ee94162fb4600f9949cbc6c27554f2949b252566e2bc994bf61f07bc42149f0) |
-| Top-up #2 (0.02 AVAX) | [`0xbcace889…be13d6`](https://snowtrace.io/tx/0xbcace889257c1fa37b07e3576519cf7cf01577b3262e62ec3b5c61d3d7be13d6) |
-| Top-up #3 (0.02 AVAX) | [`0x3e4fa84c…cfb071`](https://snowtrace.io/tx/0x3e4fa84c0693971913a49910f698ef0a54b26efc69db3fcb40d30dc11fcfb071) |
-
-**On-chain protocol state:** `totalSeats = 1` · `totalUsdCents = 55` · `55 mSECCO` minted.
-Live state is readable directly on the verified [AiFinPayCore contract](https://snowtrace.io/address/0x147d8fF8c027E24303b5B99CbC8843e1D3dF94cC#readContract).
-
-All activity originates from the deployer/operator wallet
-[`0x1D5eF769…3fAB9`](https://snowtrace.io/address/0x1D5eF769A024B3157c76884fbd10302d8d83fAB9).
+For current EVM code and deployment preparation, use **AiFinPay/evm-contract** and the active release handoff/evidence in **AiFinPay/knowledge-vault**.
