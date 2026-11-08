@@ -2,7 +2,7 @@
 *                       @syedhassan125
 
 # Smart contracts
-/contracts/             @syedhassan125
+/contracts/             @syedhassan125 @enot3615
 
 # Deployment scripts & config
 /scripts/               @syedhassan125
@@ -10,3 +10,6 @@
 
 # CI / security automation
 /.github/               @syedhassan125
+
+# Security policy
+/SECURITY.md            @syedhassan125 @enot3615
