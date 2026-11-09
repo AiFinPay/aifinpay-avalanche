@@ -44,3 +44,7 @@ the public Casper testnet infrastructure.
 This repository runs **CodeQL** static analysis, **Dependabot** dependency
 alerts and updates, and **secret scanning with push protection**. All High or
 greater severity alerts are triaged and resolved before release.
+
+## Security maintainers
+
+- Pavlo Svizinskyy (@enot3615): security review and vulnerability triage

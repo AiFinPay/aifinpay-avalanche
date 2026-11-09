@@ -1,12 +1,15 @@
 # Global owners — reviewed on every pull request
-*                       @syedhassan125
+*                       @daochild
 
 # Smart contracts
-/contracts/             @syedhassan125
+/contracts/             @daochild @enot3615
 
 # Deployment scripts & config
-/scripts/               @syedhassan125
-/config/                @syedhassan125
+/scripts/               @daochild
+/config/                @daochild
 
 # CI / security automation
-/.github/               @syedhassan125
+/.github/               @daochild
+
+# Security policy
+/SECURITY.md            @daochild @enot3615
